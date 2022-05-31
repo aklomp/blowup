@@ -1,0 +1,74 @@
+% Declarations
+% -----------------------------------------------------
+  \newdimen\hoffset
+  \newdimen\voffset
+  \newcount\howwide
+  \newcount\howhigh
+  \newdimen\pagewidth
+  \newdimen\pageheight
+  \newdimen\overlap
+  \newdimen\totalwidth
+  \newcount\hoffsetcounter
+  \newcount\voffsetcounter
+  \newcount\totaloffsetcounter
+  \newcount\totaloffsets
+
+% Set the operational parameters. How many pages wide
+% should the output be, and what is the overlap between
+% pages? Use any unit: 20mm, 1in, -5pt, whatever.
+% -----------------------------------------------------
+  \howwide=5
+  \overlap=15mm
+
+% You can play with the page height/width all you want.
+% Here they're set to landscape A3.
+% -----------------------------------------------------
+  \pagewidth=420mm
+  \pageheight=297mm
+  \pdfpagewidth\pagewidth
+  \pdfpageheight\pageheight
+
+% Vanity ;-)
+% -----------------------------------------------------
+  \pdfinfo {
+      /Title    (Blowup)
+      /Creator  (blowup)
+  }
+
+  \hoffset=\pagewidth
+  \voffset=\pageheight
+  \advance\hoffset by -\overlap
+  \advance\voffset by -\overlap
+  \totalwidth=\hoffset
+  \multiply\totalwidth by \howwide
+  \advance\totalwidth by \overlap
+
+  \pdfximage width \totalwidth {YOUR-FILE-HERE.png}
+  \newbox\picbox
+  \setbox\picbox=\hbox{\pdfrefximage\pdflastximage}
+
+  \howhigh=\ht\picbox
+  \divide\howhigh by \voffset
+  \advance\howhigh by 1
+
+  \hoffsetcounter=0
+  \voffsetcounter=0
+  \totaloffsetcounter=0
+  \totaloffsets=\howwide
+  \multiply\totaloffsets by \howhigh
+
+  \loop
+      \pdfhorigin -\hoffset
+      \pdfvorigin -\voffset
+      \multiply\pdfhorigin by \hoffsetcounter
+      \multiply\pdfvorigin by \voffsetcounter
+      \shipout\copy\picbox
+      \advance\totaloffsetcounter by 1
+      \advance\hoffsetcounter by 1
+      \ifnum\hoffsetcounter=\howwide
+          \advance\voffsetcounter by 1
+          \hoffsetcounter=0
+      \fi
+      \ifnum\totaloffsetcounter<\totaloffsets\repeat
+
+  \end

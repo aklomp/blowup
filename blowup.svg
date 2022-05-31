@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="135" width="311" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<!-- Gradient for the base page. -->
+		<linearGradient id="gradient" x1="0" y1="0" x2="49" y2="41" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#d01439" offset="0" />
+			<stop stop-color="#1d466a" offset="1" />
+		</linearGradient>
+
+	  <!-- The base page. -->
+		<g id="base">
+			<rect y="0" x="0" height="41" width="59" style="fill:black"/>
+			<rect y="1" x="1" height="39" width="57" style="fill:white"/>
+		</g>
+
+		<!-- The "image". -->
+		<g id="img">
+			<rect y="0" x="0" height="39" width="57" style="fill:url(#gradient)"/>
+		</g>
+
+		<!-- Clip zones for the "image". -->
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p11"><rect x="0"  y="0"  height="13" width="19"/></clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p12"><rect x="19" y="0"  height="13" width="19"/></clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p13"><rect x="38" y="0"  height="13" width="19"/></clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p21"><rect x="0"  y="13" height="13" width="19"/></clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p22"><rect x="19" y="13" height="13" width="19"/></clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p23"><rect x="38" y="13" height="13" width="19"/></clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p31"><rect x="0"  y="26" height="13" width="19"/></clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p32"><rect x="19" y="26" height="13" width="19"/></clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="clip-p33"><rect x="38" y="26" height="13" width="19"/></clipPath>
+
+		<!-- Scaled, clipped "images". -->
+		<use id="img11" xlink:href="#img" clip-path="url(#clip-p11)" transform="scale(3,3)"/>
+		<use id="img12" xlink:href="#img" clip-path="url(#clip-p12)" transform="scale(3,3),translate(-19,0)"/>
+		<use id="img13" xlink:href="#img" clip-path="url(#clip-p13)" transform="scale(3,3),translate(-38,0)"/>
+		<use id="img21" xlink:href="#img" clip-path="url(#clip-p21)" transform="scale(3,3),translate(0,-13)"/>
+		<use id="img22" xlink:href="#img" clip-path="url(#clip-p22)" transform="scale(3,3),translate(-19,-13)"/>
+		<use id="img23" xlink:href="#img" clip-path="url(#clip-p23)" transform="scale(3,3),translate(-38,-13)"/>
+		<use id="img31" xlink:href="#img" clip-path="url(#clip-p31)" transform="scale(3,3),translate(0,-26)"/>
+		<use id="img32" xlink:href="#img" clip-path="url(#clip-p32)" transform="scale(3,3),translate(-19,-26)"/>
+		<use id="img33" xlink:href="#img" clip-path="url(#clip-p33)" transform="scale(3,3),translate(-38,-26)"/>
+	</defs>
+
+	<!-- The base page. -->
+	<use x="2" y="2" xlink:href="#base"/>
+	<use x="3" y="3" xlink:href="#img"/>
+
+	<!-- Enlarged pages. -->
+	<use x="120" y="2" xlink:href="#base" id="p11"/>
+	<use x="121" y="3" xlink:href="#img11"/>
+
+	<use x="185" y="2" xlink:href="#base" id="p12"/>
+	<use x="186" y="3" xlink:href="#img12" />
+
+	<use x="250" y="2" xlink:href="#base" id="p13"/>
+	<use x="251" y="3" xlink:href="#img13" />
+
+	<use x="120" y="47" xlink:href="#base" id="p21"/>
+	<use x="121" y="48" xlink:href="#img21" />
+
+	<use x="185" y="47" xlink:href="#base" id="p22"/>
+	<use x="186" y="48" xlink:href="#img22" />
+
+	<use x="250" y="47" xlink:href="#base" id="p23"/>
+	<use x="251" y="48" xlink:href="#img23" />
+
+	<use x="120" y="92" xlink:href="#base" id="p31"/>
+	<use x="121" y="93" xlink:href="#img31" />
+
+	<use x="185" y="92" xlink:href="#base" id="p32"/>
+	<use x="186" y="93" xlink:href="#img32" />
+
+	<use x="250" y="92" xlink:href="#base" id="p33"/>
+	<use x="251" y="93" xlink:href="#img33" />
+
+	<!-- Arrow. -->
+	<path d="m 80,17 10,0 0,-5 15,10 -15,10 0,-5 -10,0 z" fill="#a0a0a0"/>
+
+</svg>
+<!--
+vim:ts=2:nowrap:ai
+-->
