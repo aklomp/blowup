@@ -29,3 +29,7 @@ this script and your input file in the directory where pdftex.exe is located,
 then open a command window, go to the directory, and type `pdftex blowup.tex`.
 You'll find that a file called `blowup.pdf` has been created, which is your
 poster.
+
+# License
+
+This repo is licensed under the [MIT License](https://opensource.org/licenses/MIT).
